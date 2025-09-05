@@ -1,0 +1,182 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e0bbe4; /* Light lavender purple background */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><circle cx="25" cy="25" r="10" fill="%23ccb1da"/><circle cx="75" cy="75" r="10" fill="%23ccb1da"/><rect x="10" y="60" width="10" height="10" fill="%23ccb1da" transform="rotate(45 15 65)"/><rect x="80" y="10" width="10" height="10" fill="%23ccb1da" transform="rotate(45 85 15)"/></svg>'); /* Cute geometric pattern background */
+    background-size: 80px 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden; /* Prevent background pattern from causing scrollbars */
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.9); /* Slightly transparent white for a soft look */
+    padding: 30px 40px;
+    border-radius: 25px; /* More rounded corners for cuteness */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+    width: 100%;
+    max-width: 550px;
+    border: 3px solid #957dad; /* Medium purple border */
+    position: relative;
+    z-index: 1; /* Ensure container is above background elements */
+    overflow: hidden; /* Ensure nothing spills out of rounded corners */
+}
+
+h1 {
+    text-align: center;
+    color: #6a057f; /* Dark purple for heading */
+    margin-bottom: 30px;
+    font-size: 2.5em; /* Larger heading */
+    letter-spacing: 1.5px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* Subtle text shadow */
+}
+
+.input-container {
+    display: flex;
+    gap: 15px; /* Increased gap */
+    margin-bottom: 25px;
+    background-color: #f8f0fc; /* Lightest purple background for input area */
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05); /* Inner shadow for depth */
+}
+
+#taskInput, #deadlineInput {
+    flex-grow: 1;
+    padding: 14px;
+    border: 1px solid #c3a4d6; /* Softer purple border for inputs */
+    border-radius: 10px;
+    font-size: 17px;
+    background-color: #fff; /* White background for input fields */
+    color: #4a4a4a;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#taskInput:focus, #deadlineInput:focus {
+    border-color: #8c5fb4; /* Brighter purple on focus */
+    box-shadow: 0 0 8px rgba(140, 95, 180, 0.3); /* Glow effect on focus */
+    outline: none;
+}
+
+#addTaskBtn {
+    padding: 14px 22px;
+    border: none;
+    background-color: #8c5fb4; /* Medium purple button */
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 17px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Button shadow */
+}
+
+#addTaskBtn:hover {
+    background-color: #6a057f; /* Darker purple on hover */
+    transform: translateY(-2px); /* Lift effect */
+}
+
+#taskList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#taskList li {
+    background: #fdf5ff; /* Very light purple background for list items */
+    padding: 18px;
+    border-radius: 18px; /* More rounded list items */
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #d4b9e7; /* Light purple border */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    font-size: 18px;
+    color: #5a5a5a;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08); /* Item shadow */
+}
+
+#taskList li:hover {
+    background-color: #f5edfa; /* Slightly darker light purple on hover */
+    transform: translateY(-3px); /* More pronounced lift effect */
+    box-shadow: 0 5px 10px rgba(0,0,0,0.12);
+}
+
+.task-details {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.task-text {
+    display: flex;
+    align-items: center;
+    font-weight: 600; /* Bolder text */
+}
+
+.task-text .emoji {
+    margin-right: 10px;
+    font-size: 1.2em; /* Larger emoji */
+}
+
+.completed .task-text {
+    text-decoration: line-through;
+    color: #a787bd; /* Muted purple for completed text */
+}
+
+.completed .deadline-text {
+    color: #b79dc9; /* Lighter muted purple for completed deadline */
+}
+
+.deadline-text {
+    font-size: 0.9em;
+    color: #6a057f; /* Dark purple for deadline */
+    margin-top: 7px;
+    font-weight: 500;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: #e76f51; /* Soft red for delete icon */
+    font-size: 24px; /* Larger delete icon */
+    cursor: pointer;
+    margin-left: 20px;
+    transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.delete-btn:hover {
+    transform: scale(1.3) rotate(5deg); /* More dynamic pop and slight rotate */
+    color: #d62828; /* Brighter red on hover */
+}
+
+/* Optional: Add some cute floating elements for extra charm */
+.container::before, .container::after {
+    content: '💜';
+    position: absolute;
+    font-size: 40px;
+    opacity: 0.3;
+    animation: float 5s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.container::before {
+    top: -20px;
+    left: -20px;
+    animation-delay: 0s;
+}
+
+.container::after {
+    bottom: -20px;
+    right: -20px;
+    content: '✨';
+    animation-delay: 2.5s;
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(10px, -10px); }
+    100% { transform: translate(0, 0); }
+}
